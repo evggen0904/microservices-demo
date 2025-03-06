@@ -1,0 +1,17 @@
+1) Для поднятия контейнера kafka + zookeeper необходимо стартануть докер образы
+```bash
+docker-compose -f common.yml -f kafka_cluster.yml up
+```
+
+2) запустить сервис TwitterToKafkaServiceApplication
+
+3) Проверить что топики создались и данные пишутся. Для этого можно использовать утилиту kafkacat.
+Статус кластера:
+```bash
+kcat -L -b localhost:19092
+```
+
+Посмотреть сообщения в топике:
+```bash
+kcat -C -b localhost:19092 -t twitter-topic
+```

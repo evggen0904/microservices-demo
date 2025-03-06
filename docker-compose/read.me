@@ -1,0 +1,13 @@
+### Запуск кафки и сервиса по отдельности:
+```bash
+    docker-compose -f common.yml -f kafka_cluster.yml up -d
+    // wait until kafka starts
+    docker-compose -f common.yml -f services.yml up -d
+```
+
+### Запуск кафка + сервис вместе
+
+Сервис будет рестартиться, пока не сможет подключиться к кластера кафка
+```bash
+    docker-compose up -d
+```

@@ -1,0 +1,6 @@
+version: '3.7'
+
+#we use breach to be able to communicate between services via host name(not by dynamic ip)
+networks:
+  application:
+    driver: bridge
