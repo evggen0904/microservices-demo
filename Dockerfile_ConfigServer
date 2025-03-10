@@ -1,0 +1,13 @@
+FROM ubuntu:22.04
+RUN apt-get update
+RUN apt-get install openjdk-21-jdk -y
+RUN apt-get install curl -y
+
+COPY config-server/target/config-server.jar home/app.jar
+COPY config-server-repository home/config-server-repository
+
+WORKDIR /home
+
+EXPOSE 8888
+ENTRYPOINT ["java","-Dspring.cloud.config.server.native.search-locations=file:///home/config-server-repository","-Dlogging.level.root=debug", "-jar","app.jar"]
+#CMD /bin/bash

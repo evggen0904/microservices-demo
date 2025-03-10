@@ -1,5 +1,5 @@
 spring:
   application:
-    name: twitter-to-kafka-service
+    name: twitterToKafkaService
   config:
     import: optional:configserver:http://localhost:8888

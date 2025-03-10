@@ -16,6 +16,7 @@ spring:
     config:
       server:
         native:
+#          search-locations: ${SEARCH_LOCATIONS}
           search-locations: file://${user.home}/IdeaProjects/microservices-demo/config-server-repository
 #        git:
 #          uri: file://${user.home}/IdeaProjects/microservices-demo/config-server-repository
