@@ -1,3 +1,6 @@
+server:
+  port: 8181
+
 twitter-to-kafka-service:
   twitter-keywords:
     - Java
@@ -18,7 +21,8 @@ retry-config:
   sleep-time-ms: 2000
 
 kafka-config:
-  bootstrap-servers: localhost:19092, localhost:29092
+#  bootstrap-servers: localhost:19092, localhost:29092
+  bootstrap-servers: localhost:9092
   schema-registry-url-key: schema.registry.url
   schema-registry-url: http://localhost:8081
   topic-name: twitter-topic

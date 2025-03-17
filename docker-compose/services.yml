@@ -7,8 +7,11 @@ services:
       - "8888:8888"
     volumes:
       - "./docker-logs:/workspace/config-server/logs"
+      - "../config-server-repository:/home/config-server-repository"
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8888 -Xms128m -Xmx256m"
+      - "SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH-LOCATIONS=file:///home/config-server-repository"
+      - "LOGGING_LEVEL_ROOT=debug"
     networks:
       - ${GLOBAL_NETWORK:-kafka}
   twitter-to-kafka-service:
@@ -25,7 +28,7 @@ services:
 #    entrypoint: ["check-config-server-started.sh"]
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka1:29092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
       - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
     networks:
