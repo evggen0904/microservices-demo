@@ -1,0 +1,12 @@
+FROM ubuntu:22.04
+RUN apt-get update
+RUN apt-get install openjdk-21-jdk -y
+RUN apt-get install curl -y
+
+COPY kafka-to-elastic-service/target/kafka-to-elastic.jar home/app.jar
+
+WORKDIR /home
+
+EXPOSE 8182
+ENTRYPOINT ["java","-jar","app.jar"]
+#CMD /bin/bash
