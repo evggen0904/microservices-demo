@@ -1,131 +1,20 @@
 {
-  "took": 21,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "skipped": 0,
-    "failed": 0
-  },
-  "hits": {
-    "total": {
-      "value": 15,
-      "relation": "eq"
-    },
-    "max_score": 1.0,
-    "hits": [
-      {
-        "_index": "twitter-index",
-        "_id": "6962434001365796612",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "6962434001365796612",
-          "userId": 8058407255178231797,
-          "text": "magna adipiscing pulvinar Fusce lectus ipsum amet magna Spring pulvinar pulvinar libero sit sed sit",
-          "createdAt": "2025-03-24T09:19:29"
+  "from": 0,
+  "size": 10,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "text": "test"
+          }
+        },
+        {
+          "match": {
+            "text": "word"
+          }
         }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "8732826990245541307",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "8732826990245541307",
-          "userId": 2011623114746969879,
-          "text": "amet sed Lorem sed Fusce amet magna adipiscing Kafka congue amet purus ultricies ultricies magna",
-          "createdAt": "2025-03-24T09:20:00"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "1795040008500041373",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "1795040008500041373",
-          "userId": 2769287156999915223,
-          "text": "magna purus massa libero amet ipsum posuere sed Kafka amet massa elit magna Maecenas elit",
-          "createdAt": "2025-03-24T09:19:40"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "8927891823627172621",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "8927891823627172621",
-          "userId": 1131267124848444867,
-          "text": "ultricies congue amet sit amet Elasticsearch Fusce lectus Maecenas consectetuer",
-          "createdAt": "2025-03-24T09:22:12"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "4614127839910601261",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "4614127839910601261",
-          "userId": 1776402114814387219,
-          "text": "sit magna massa pulvinar purus ipsum Spring Maecenas Fusce Fusce dolor libero",
-          "createdAt": "2025-03-24T09:22:01"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "2801525710148870609",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "2801525710148870609",
-          "userId": 350936224643189054,
-          "text": "posuere adipiscing posuere Maecenas Microservices posuere purus",
-          "createdAt": "2025-03-24T09:19:50"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "612577742992552044",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "612577742992552044",
-          "userId": 2293359723931648363,
-          "text": "dolor Fusce porttitor Fusce magna Kafka lectus elit adipiscing",
-          "createdAt": "2025-03-24T09:20:20"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "6757100857765969682",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "6757100857765969682",
-          "userId": 5675860524509481346,
-          "text": "porttitor amet amet amet Kafka Maecenas libero",
-          "createdAt": "2025-03-24T09:20:10"
-        }
-      },
-      {
-        "_index": "twitter-index",
-        "_id": "253187290891588779",
-        "_score": 1.0,
-        "_source": {
-          "_class": "com.microservices.demo.elastic.model.index.impl.TwitterIndexModel",
-          "id": "253187290891588779",
-          "userId": 7015964953555925015,
-          "text": "Fusce massa libero Spring libero amet",
-          "createdAt": "2025-03-24T09:20:40"
-        }
-      }
-,{"_index":"twitter-index","_id":"1","_score":1.0,"_source":
-{
-  "userId": "1",
-  "id": "1",
-  "createdAt": "2025-03-17T09:01:00",
-  "text": "test multi word"
-},
+      ]
+    }
+  }
+}
