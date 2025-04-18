@@ -27,6 +27,6 @@
     ```shell
        docker-compose -f common.yml -f services.yml up
     ```      
-   Либо просто стартануть по отдельности ConfigServer, twitter-to-kafka-service, kafka-to-elastic-service, elastic-query-service
+   Либо просто стартануть по отдельности config-server, twitter-to-kafka-service, kafka-to-elastic-service, elastic-query-service, elastic-query-web-client
 
 9) 
