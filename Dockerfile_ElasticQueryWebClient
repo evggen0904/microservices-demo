@@ -1,0 +1,13 @@
+FROM ubuntu:22.04
+RUN apt-get update
+RUN apt-get install openjdk-21-jdk -y
+RUN apt-get install curl -y
+
+COPY elastic-query-web-client/target/elastic-query-web-client.jar home/app.jar
+
+WORKDIR /home
+
+EXPOSE 8184
+#ENTRYPOINT ["java","-jar","app.jar"]
+CMD ["java", "-jar", "/home/app.jar"]
+#CMD /bin/bash

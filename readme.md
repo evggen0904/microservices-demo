@@ -9,20 +9,24 @@
    ```   
 4) Для создания докер образа elastic-query-service выполнить команду в корневой директории проекта
    ```shell
-      docker build -f Dockerfile_KafkaToElasticService -t com.microservices.demo/elastic-query-service:1.0 .
+      docker build -f Dockerfile_ElasticQueryService -t com.microservices.demo/elastic-query-service:1.0 .
    ```      
-5) Для поднятия контейнера kafka + zookeeper необходимо стартануть докер образы 
+5) Для создания докер образа elastic-query-web-client выполнить команду в корневой директории проекта
+   ```shell
+      docker build -f Dockerfile_ElasticQueryWebClient -t com.microservices.demo/elastic-query-web-client:1.0 .
+   ```       
+6) Для поднятия контейнера kafka + zookeeper необходимо стартануть докер образы 
     ```shell
        docker-compose -f common.yml -f kafka_cluster.yml up
     ```
-6) Для поднятия контейнера elastic search необходимо стартануть докер образы
+7) Для поднятия контейнера elastic search необходимо стартануть докер образы
     ```shell
        docker compose -f common.yml -f elastic_cluster.yml up
     ```   
-7) Запустить в контейнерах все сервисы
+8) Запустить в контейнерах все сервисы
     ```shell
        docker-compose -f common.yml -f services.yml up
     ```      
    Либо просто стартануть по отдельности ConfigServer, twitter-to-kafka-service, kafka-to-elastic-service, elastic-query-service
 
-8) 
+9) 

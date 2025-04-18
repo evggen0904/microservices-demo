@@ -70,3 +70,22 @@ services:
     networks:
       - ${GLOBAL_NETWORK:-kafka}
     restart: on-failure
+  elastic-query-web-client:
+    image: ${GROUP_ID}/elastic-query-web-client:1.0
+    container_name: elastic-query-web-client
+    ports:
+      - "8184:8184"
+    volumes:
+      - "./docker-logs:/workspace/elastic-query-web-client/logs"
+      - "./check-config-server-started.sh:/home/check-config-server-started.sh"
+    user: root
+    entrypoint: [ "/home/check-config-server-started.sh" ]
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5010 -Xms128m -Xmx256m"
+      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_ID=elastic-query-service"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_HOST=elastic-query-service"
+      - "ELASTIC-QUERY-WEB-CLIENT_WEB-CLIENT_INSTANCES_0_PORT=8183"
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+    restart: on-failure
